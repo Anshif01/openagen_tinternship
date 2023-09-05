@@ -8,7 +8,6 @@ def format_chat_template(input_text):
         user_segment = "{{#user}}" + user_content + "{{/user}}"
         assistant_segment = "{{#assistant}}" +"{{gen '"+ gen_command_content+"'}}" + "{{/assistant}}"
     else:
-        # When gen_command is not present, enclose the entire input_text in user tags
         user_segment = "{{#user}}" + input_text + "{{/user}}"
         assistant_segment = "{{#assistant}}{{gen 'write'}}{{/assistant}}"
     return user_segment + " " + assistant_segment
