@@ -3,7 +3,7 @@ from pyparsing import QuotedString
 def format_chat_template(input_text):
     gen_command = "{{gen" + QuotedString("'") + "}}"
     if gen_command.searchString(input_text):
-        user_content = input_text.split(gen_command.searchString(input_text)[0][0])[0].strip()
+        user_content = input_text.split(gen_command.searchString(input_text)[0][0])[0]
         gen_command_content = gen_command.searchString(input_text)[0][1]
         user_segment = "{{#user}}" + user_content + "{{/user}}"
         assistant_segment = "{{#assistant}}" +"{{gen '"+ gen_command_content+"'}}" + "{{/assistant}}"
